@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TorresDeHanoi:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TorresDeHanoi_jar</output-path>
+    <root id="archive" name="TorresDeHanoi.jar">
+      <element id="module-output" name="TorresDeHanoi" />
+    </root>
+  </artifact>
+</component>
