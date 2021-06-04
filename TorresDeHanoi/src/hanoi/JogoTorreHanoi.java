@@ -113,7 +113,6 @@ public class JogoTorreHanoi {
     }
 
     public String constroiEntradaScanner(String linhaScanner){
-        //int[] valoresScanner = new int[2];
         String movimentosTorres = "";
 
         if(linhaScanner.contains("primeir") && linhaScanner.contains("segund")){
@@ -123,13 +122,11 @@ public class JogoTorreHanoi {
             String[] splitScanner = linhaScanner.split("primeir");
             strTemp = splitScanner[1].replaceAll("[^0-9]", "");
             movimentosTorres = String.valueOf(strTemp.charAt(0));
-            //valoresScanner[0] = Integer.valueOf(Character.getNumericValue(strTemp.charAt(0)));
 
             //Torre de destino
             splitScanner = linhaScanner.split("segund");
             strTemp = splitScanner[1].replaceAll("[^0-9]", "");
             movimentosTorres += String.valueOf(strTemp.charAt(0));
-            //valoresScanner[1] = Integer.valueOf(Character.getNumericValue(strTemp.charAt(0)));
         }
 
         return movimentosTorres;

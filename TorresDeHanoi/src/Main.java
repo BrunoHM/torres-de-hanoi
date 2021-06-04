@@ -37,11 +37,8 @@ public class Main {
                     boolean atribuicaoPadrao = false;
 
                     if(movimentoTorres.contains(" ") && movimentoTorres.replaceAll("[^0-9]", "").length() == 2){
-                        //int[] movsTorresScanner = jogoTorreHanoi.constroiEntradaScanner(movimentoTorres);
                         movimentoTorres = jogoTorreHanoi.constroiEntradaScanner(movimentoTorres);
                         atribuicaoPadrao = true;
-                        //torreOrigem  = movsTorresScanner[0];
-                        //torreDestino = movsTorresScanner[1];
                     }
 
                     if(movimentoTorres.equals("sair") || movimentoTorres.equals("-1")){
@@ -51,6 +48,8 @@ public class Main {
                         //Caso responda ao padrão (NumeroNumero), ex: "11", "23", "31", a jogada é valida.
                         atribuicaoPadrao = true;
                     } else if (movimentoTorres.replaceAll("[^0-9]", "").length() == 2) {
+                        //Regex aplicado irá remover todo e qualquer caractere que não estiver entre o intervalo de 0 á 9
+                        //Se aplicando o regex, sobrar somente dois números na String, é considerado valores válidos.
                         movimentoTorres = movimentoTorres.replaceAll("[^0-9]", "");
                         atribuicaoPadrao = true;
                     } else if (movimentoTorres.matches("[0-9]+") && movimentoTorres.length() == 1) {
@@ -62,7 +61,7 @@ public class Main {
                     }
 
                     if (atribuicaoPadrao) {
-                        //movimentoTorres.charAt() retorna o char em ASCII
+                        //Conversão com o Character.getNumericValue se da necessário porque movimentoTorres.charAt() retorna o char em ASCII
                         torreOrigem  = Integer.valueOf(Character.getNumericValue(movimentoTorres.charAt(0)));
                         torreDestino = Integer.valueOf(Character.getNumericValue(movimentoTorres.charAt(1)));
                     }
