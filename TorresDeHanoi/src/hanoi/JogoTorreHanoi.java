@@ -5,6 +5,8 @@ import lista.PilhaLista;
 import interfaces.Pilha;
 import vetor.PilhaVetor;
 
+import java.util.Scanner;
+
 public class JogoTorreHanoi {
     private Pilha<Integer> primeraTorre;
     private Pilha<Integer> segundaTorre;
@@ -37,7 +39,7 @@ public class JogoTorreHanoi {
         }
 
         String[] arrayPrimeiraTorre = this.getTorreToString(this.primeraTorre);
-        String[] arraySegundaTorre = this.getTorreToString(this.segundaTorre);
+        String[] arraySegundaTorre  = this.getTorreToString(this.segundaTorre);
         String[] arrayTerceiraTorre = this.getTorreToString(this.terceiraTorre);
 
         for (int indice = 0; indice < 5; indice++) {
@@ -109,4 +111,28 @@ public class JogoTorreHanoi {
 
         return arrayBarras;
     }
+
+    public String constroiEntradaScanner(String linhaScanner){
+        //int[] valoresScanner = new int[2];
+        String movimentosTorres = "";
+
+        if(linhaScanner.contains("primeir") && linhaScanner.contains("segund")){
+            String strTemp = "";
+
+            //Torre de origem
+            String[] splitScanner = linhaScanner.split("primeir");
+            strTemp = splitScanner[1].replaceAll("[^0-9]", "");
+            movimentosTorres = String.valueOf(strTemp.charAt(0));
+            //valoresScanner[0] = Integer.valueOf(Character.getNumericValue(strTemp.charAt(0)));
+
+            //Torre de destino
+            splitScanner = linhaScanner.split("segund");
+            strTemp = splitScanner[1].replaceAll("[^0-9]", "");
+            movimentosTorres += String.valueOf(strTemp.charAt(0));
+            //valoresScanner[1] = Integer.valueOf(Character.getNumericValue(strTemp.charAt(0)));
+        }
+
+        return movimentosTorres;
+    }
+
 }
